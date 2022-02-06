@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: [
     'airbnb-base',
+    'airbnb-typescript',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',

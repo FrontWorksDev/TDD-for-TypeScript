@@ -1,23 +1,16 @@
-export default class Doller {
-  private amount: number;
+export default class Money {
+  protected amount: number;
 
   constructor(amount: number) {
     this.amount = amount;
   }
 
   /**
-   * times
-   */
-  public times(multiplier: number): Doller {
-    return new Doller(this.amount * multiplier);
-  }
-
-  /**
    * equals
    */
-  public equals(object: Doller): boolean {
-    const dollar = object;
+  public equals(object: Money): boolean {
+    const money = object;
 
-    return this.amount === dollar.amount;
+    return this.amount === money.amount;
   }
 }
