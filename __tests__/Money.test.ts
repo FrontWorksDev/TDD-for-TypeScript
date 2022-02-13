@@ -1,23 +1,23 @@
-import Doller from "../src/Doller";
-import Franc from "../src/Franc";
+import Money from "../src/Money";
 
 describe("Money modules", () => {
   test("Multiplication", () => {
-    const five = new Doller(5);
-    expect(new Doller(10)).toEqual(five.times(2));
-    expect(new Doller(15)).toEqual(five.times(3));
+    const five: Money = Money.doller(5);
+    expect(Money.doller(10)).toEqual(five.times(2));
+    expect(Money.doller(15)).toEqual(five.times(3));
   });
 
   test("Equality", () => {
-    expect(new Doller(5).equals(new Doller(5))).toBeTruthy();
-    expect(new Doller(5).equals(new Doller(6))).toBeFalsy();
-    expect(new Franc(5).equals(new Franc(5))).toBeTruthy();
-    expect(new Franc(5).equals(new Franc(6))).toBeFalsy();
+    expect(Money.doller(5).equals(Money.doller(5))).toBeTruthy();
+    expect(Money.doller(5).equals(Money.doller(6))).toBeFalsy();
+    expect(Money.franc(5).equals(Money.franc(5))).toBeTruthy();
+    expect(Money.franc(5).equals(Money.franc(6))).toBeFalsy();
+    expect(Money.franc(5).equals(Money.doller(5))).toBeFalsy();
   });
 
   test("FrancMultiplication", () => {
-    const five = new Franc(5);
-    expect(new Franc(10)).toEqual(five.times(2));
-    expect(new Franc(15)).toEqual(five.times(3));
+    const five: Money = Money.franc(5);
+    expect(Money.franc(10)).toEqual(five.times(2));
+    expect(Money.franc(15)).toEqual(five.times(3));
   });
 });

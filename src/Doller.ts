@@ -8,7 +8,7 @@ export default class Doller extends Money {
   /**
    * times
    */
-  public times(multiplier: number): Doller {
+  public times(multiplier: number): Money {
     return new Doller(this.amount * multiplier);
   }
 }
