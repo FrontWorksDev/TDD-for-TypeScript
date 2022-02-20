@@ -1,14 +1,14 @@
 import Money from "./Money";
 
 export default class Franc extends Money {
-  constructor(amount: number) {
-    super(amount);
+  constructor(amount: number, currencyType: string) {
+    super(amount, currencyType);
   }
 
   /**
    * times
    */
-  public times(multiplier: number): Money {
-    return new Franc(this.amount * multiplier);
+  times(multiplier: number): Money {
+    return Money.franc(this.amount * multiplier);
   }
 }
