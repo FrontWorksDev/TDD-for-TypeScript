@@ -1,10 +1,6 @@
-import Doller from "./Doller";
-import Franc from "./Franc";
-
-export default abstract class Money {
+export default class Money {
   protected amount: number;
   protected currencyType: string;
-  abstract times(multiplier: number): Money;
 
   constructor(amount: number, currencyType: string) {
     this.amount = amount;
@@ -15,6 +11,11 @@ export default abstract class Money {
     return this.currencyType;
   }
 
+  times(multiplier: number): Money {
+    return new Money(this.amount * multiplier, this.currencyType)
+  }
+
+
   /**
    * equals
    */
@@ -23,15 +24,15 @@ export default abstract class Money {
 
     return (
       this.amount === money.amount &&
-      this.constructor.name === money.constructor.name
+      this.currency() === money.currency()
     );
   }
 
   static doller(amount: number): Money {
-    return new Doller(amount, "USD");
+    return new Money(amount, "USD");
   }
 
   static franc(amount: number): Money {
-    return new Franc(amount, "CHF");
+    return new Money(amount, "CHF");
   }
 }
